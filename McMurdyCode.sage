@@ -1,3 +1,5 @@
+#This code is a combination of code made available by K. McMurdy (see our references for link), and comments and notes which we (WIN5) added, and a function for changing rational functions field of definition.
+
 def IsoAdd(phi1,phi2,Wrs1,Wrs2):
     f1=phi1[0]
     g1=phi1[1]
@@ -6,12 +8,9 @@ def IsoAdd(phi1,phi2,Wrs1,Wrs2):
     mm=(g2-g1)/(f2-f1)
     XX=mm^2*Wrs1-Wrs2[2]-f1-f2
     YY=-mm*(XX-f1)-g1
-
-
     return [XX,YY]
 
 def EndoAdd(phi1,phi2,Wrs):
-
     return IsoAdd(phi1,phi2,Wrs,Wrs)
 
 def IsoDouble(phi,Wrs1,Wrs2):
@@ -140,7 +139,6 @@ def Iso2fromKernel(Wrs,xVal):
     bet1=tt(x=x1)
     bet2=tt(x=x2)
     Wrs2=x*(x-bet1)*(x-bet2)
-
     EE=EllipticCurve(K,[0,Wrs2[2],0,Wrs2[1],Wrs2[0]])
     jj=EE.j_invariant()
     phi1=[tt,(x-x1)*(x-x2)/(x-xVal)^2]
